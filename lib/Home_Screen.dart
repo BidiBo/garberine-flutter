@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'controller.dart';  // Importamos el controlador para gestionar el juego
+import 'controller.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Fondo con imagen
+          // Fondo de imagen
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -18,17 +18,11 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          
-          // Fondo con gradiente (comentado para usar imagen, descomentar si es necesario)
-          /*Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Color.fromARGB(255, 3, 104, 172), Color.fromARGB(255, 212, 190, 178)],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-            ),
-          ),*/
+
+          // Oscurecimiento suave
+          Container(
+            color: Colors.black.withOpacity(0.5),
+          ),
 
           // Contenido principal
           Center(
@@ -38,26 +32,28 @@ class HomeScreen extends StatelessWidget {
                 const Text(
                   '¡Bienvenido a Garberine!',
                   style: TextStyle(
-                    color: Color.fromARGB(255, 163, 106, 106),
+                    color: Colors.white,
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 40),
-                
-                // Botón de jugar
                 ElevatedButton.icon(
                   onPressed: () => GameController.launchGodotGame(context),
-                  icon: const Icon(Icons.play_arrow),
-                  label: const Text('JUGAR'),
+                  icon: const Icon(Icons.play_arrow, size: 30),
+                  label: const Text(
+                    'JUGAR',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 230, 197, 188),
                     foregroundColor: const Color.fromARGB(255, 20, 17, 17),
-                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 50, vertical: 20),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    textStyle: const TextStyle(fontSize: 18),
+                    elevation: 8,
                   ),
                 ),
               ],
