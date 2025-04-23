@@ -1,12 +1,9 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:prueba5/control/lifecycle_handler.dart';
 import 'main_screen.dart';
 
-void main(){
-  WidgetsFlutterBinding.ensureInitialized(); // Necesario para el observer
-  LifecycleHandler().init(); // Activar el observador {
+void main() {
   runApp(const MyApp());
 }
 

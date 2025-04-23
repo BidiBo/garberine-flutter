@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
   
     
-
+  
   url_launcher: ^6.2.5
   external_app_launcher: ^4.0.3
   permission_handler: ^11.3.0
@@ -28,6 +28,10 @@ flutter:
   uses-material-design: true
   assets:
     - assets/imagen/fondo.png
+    - assets/imagen/gamerfondo.png
+    - assets/imagen/comunidadfondo.png
+    - assets/imagen/noticiasfondo.png
+
 
   # Descomenta esta sección si tienes imágenes o archivos que quieres usar
   # assets:

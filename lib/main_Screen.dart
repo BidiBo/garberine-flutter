@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:prueba5/home/community_screen.dart';
+import 'package:prueba5/home/news_screen.dart';
 import 'package:prueba5/home/rankingscreen.dart';
 import 'package:prueba5/home/home_screen.dart';
  // Asegúrate de tener este import
@@ -16,8 +17,8 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> _screens = [
     const HomeScreen(),
-    const PlaceholderScreen(title: 'Noticias'),
-    const PlaceholderScreen(title: 'Comunidad'),
+    const NewsScreen(),
+    const CommunityScreen(),
     const RankingScreen(),
   ];
 

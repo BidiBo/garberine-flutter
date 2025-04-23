@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:prueba5/temporizador.dart';
 import 'package:prueba5/control/controller.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
+
+  void _launchGame(BuildContext context) {
+    GameController.launchGodotGame(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +22,10 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-
           // Oscurecimiento suave
           Container(
             color: Colors.black.withOpacity(0.5),
           ),
-
           // Contenido principal
           Center(
             child: Column(
@@ -40,10 +41,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 40),
                 ElevatedButton.icon(
-                  onPressed: () async {
-                    await Temporizador.iniciar();  // Iniciar el temporizador
-                    GameController.launchGodotGame(context);
-                  }, 
+                  onPressed: () => _launchGame(context),
                   icon: const Icon(Icons.play_arrow, size: 30),
                   label: const Text(
                     'JUGAR',

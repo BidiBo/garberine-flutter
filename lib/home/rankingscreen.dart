@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:prueba5/temporizador.dart';  // Asegúrate de que el import sea correcto
 
 class RankingScreen extends StatelessWidget {
   const RankingScreen({super.key});
@@ -8,39 +7,91 @@ class RankingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ranking'),
-        backgroundColor: Colors.orangeAccent,
-      ),
-      body: Center(
-        child: FutureBuilder<int>(
-          future: Temporizador.obtenerTiempo(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const CircularProgressIndicator();
-            }
-            if (snapshot.hasData) {
-              final tiempoJugado = snapshot.data!;
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Tiempo jugado:',
-                    style: TextStyle(fontSize: 24, color: Colors.orangeAccent),
-                  ),
-                  Text(
-                    '${Temporizador.formatearTiempo(tiempoJugado)}', // Mostrar el tiempo formateado
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              );
-            } else {
-              return const Text(
-                'No se pudo obtener el tiempo',
-                style: TextStyle(fontSize: 20, color: Colors.red),
-              );
-            }
-          },
+        title: const Text(
+          'Ranking de Jugadores',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+            letterSpacing: 2.0,
+          ),
         ),
+        backgroundColor: const Color.fromARGB(221, 9, 68, 95),
+      ),
+      body: Stack(
+        children: [
+          // Fondo gamer
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/imagen/gamerfondo.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          // Capa oscura encima del fondo
+          Container(
+            color: const Color.fromARGB(255, 9, 91, 146).withOpacity(0.4),
+          ),
+          // Contenido
+          Center(
+            child: ListView(
+              padding: const EdgeInsets.all(20),
+              children: [
+                const SizedBox(height: 40),
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.blueGrey.withOpacity(0.5), // Más claro
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black54,
+                        blurRadius: 8,
+                        offset: Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        '1. el profe - 1500 pts',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Divider(color: Colors.white70),
+                      Text(
+                        '2. yo - 1450 pts',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Divider(color: Colors.white70),
+                      Text(
+                        '3. yo pro - 1400 pts',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Divider(color: Colors.white70),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
