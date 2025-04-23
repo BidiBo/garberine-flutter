@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'controller.dart';
+import 'package:prueba5/temporizador.dart';
+import 'package:prueba5/control/controller.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -39,7 +40,10 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 40),
                 ElevatedButton.icon(
-                  onPressed: () => GameController.launchGodotGame(context),
+                  onPressed: () async {
+                    await Temporizador.iniciar();  // Iniciar el temporizador
+                    GameController.launchGodotGame(context);
+                  }, 
                   icon: const Icon(Icons.play_arrow, size: 30),
                   label: const Text(
                     'JUGAR',
@@ -48,8 +52,7 @@ class HomeScreen extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 230, 197, 188),
                     foregroundColor: const Color.fromARGB(255, 20, 17, 17),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 50, vertical: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),

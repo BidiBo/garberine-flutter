@@ -1,7 +1,8 @@
-/* aqui va la logica para las pantallas de cada opcion*/
 import 'package:flutter/material.dart';
-import 'package:prueba5/Home_Screen.dart';
 
+import 'package:prueba5/home/rankingscreen.dart';
+import 'package:prueba5/home/home_screen.dart';
+ // Asegúrate de tener este import
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -13,14 +14,14 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-  // Aquí puedes conectar las pantallas cuando estén listas
   final List<Widget> _screens = [
     const HomeScreen(),
     const PlaceholderScreen(title: 'Noticias'),
     const PlaceholderScreen(title: 'Comunidad'),
-    const PlaceholderScreen(title: 'Ranking'),
+    const RankingScreen(),
   ];
 
+  
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
