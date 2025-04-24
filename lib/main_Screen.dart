@@ -3,6 +3,7 @@ import 'package:prueba5/home/community_screen.dart';
 import 'package:prueba5/home/news_screen.dart';
 import 'package:prueba5/home/rankingscreen.dart';
 import 'package:prueba5/home/home_screen.dart';
+import 'package:prueba5/home/ruletascreen.dart';
  // Asegúrate de tener este import
 
 class MainScreen extends StatefulWidget {
@@ -20,6 +21,7 @@ class _MainScreenState extends State<MainScreen> {
     const NewsScreen(),
     const CommunityScreen(),
     const RankingScreen(),
+    const Ruletascreen(),
   ];
 
   
@@ -57,6 +59,11 @@ class _MainScreenState extends State<MainScreen> {
             icon: Icon(Icons.emoji_events),
             label: 'Ranking',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.casino),
+            label: 'Ruleta',
+          ),
+          
         ],
       ),
     );

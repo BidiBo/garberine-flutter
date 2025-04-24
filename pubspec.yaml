@@ -31,6 +31,7 @@ flutter:
     - assets/imagen/gamerfondo.png
     - assets/imagen/comunidadfondo.png
     - assets/imagen/noticiasfondo.png
+    - assets/imagen/ruletafondo.png
 
 
   # Descomenta esta sección si tienes imágenes o archivos que quieres usar
